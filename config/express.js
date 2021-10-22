@@ -9,8 +9,13 @@ app.use(bodyParser.json());
 
 //Now in server.js adding route as a middleware.
 const rootRouter = require("../api/routes");
-app.use("/", rootRouter);
+app.use(rootRouter);
 
 app.listen(port);
 
 console.log("todo list myRetailo API server started on: " + port);
+
+app.use(function(req, res) {
+    res.status(404).send({url: req.originalUrl + ' not found'})
+  });
+  

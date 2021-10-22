@@ -1,1 +1,1 @@
-require('./config/index.js');
+require('./config');
