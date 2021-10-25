@@ -1,3 +1,4 @@
+require('../middlewares')
 let express = require("express"),
   app = express(),
   port = process.env.PORT || 3000,
@@ -13,9 +14,9 @@ app.use(rootRouter);
 
 app.listen(port);
 
-console.log("todo list myRetailo API server started on: " + port);
+console.log(" myRetailo API server started on: " + port);
 
-app.use(function(req, res) {
-    res.status(404).send({url: req.originalUrl + ' not found'})
-  });
-  
+
+
+//
+
