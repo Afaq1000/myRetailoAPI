@@ -1,3 +1,4 @@
+const signUp= require("../api/routes/signUp")
 require('../middlewares')
 let express = require("express"),
   app = express(),
@@ -7,10 +8,9 @@ let express = require("express"),
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-//Now in server.js adding route as a middleware.
 const rootRouter = require("../api/routes");
-app.use(rootRouter);
+app.use(rootRouter);                       //mounting instance of express.Router on the app
+app.use("/signUp",signUp)   
 
 app.listen(port);
 
@@ -18,5 +18,4 @@ console.log(" myRetailo API server started on: " + port);
 
 
 
-//
 

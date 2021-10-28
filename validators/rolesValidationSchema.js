@@ -8,8 +8,8 @@ const rolesValSchema = Joi.object({
 
 
     value: Joi.string()
+        .valid("SuperAdmin", "SaleAgent", "Consumer")
         .required()
-
    
 })
 

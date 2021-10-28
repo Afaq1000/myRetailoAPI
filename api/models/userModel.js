@@ -6,14 +6,15 @@ var Schema = mongoose.Schema;
 
 
 var UserSchema = new Schema({
-    username: {
-        type: String,
-        required: 'Kindly enter the name of the user'
-      },
+    // username: {
+    //     type: String,
+    //     required: 'Kindly enter the name of the user'
+    //   },
     
       email: {
         type: String,
-        required: 'Kindly enter email'
+        required: 'Kindly enter email',
+        unique: true
       },
     
       password: {
@@ -21,16 +22,17 @@ var UserSchema = new Schema({
         required: 'Kindly enter password'
       },
     
-      pin: {
-        type: Number,
-        required: 'Kindly enter pin'
-      },
+      // pin: {
+      //   type: Number,
+      //   required: 'Kindly enter pin'
+      
+      // },
     
-      verified: {
-       type: Boolean,
-       required: true,
-       default: false
-      }
+      // verified: {
+      //  type: Boolean,
+      //  required: true,
+      //  default: false
+      // }
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Users', UserSchema);

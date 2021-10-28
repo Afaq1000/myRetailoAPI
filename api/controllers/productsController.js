@@ -1,11 +1,9 @@
 'use strict';
-
-
 var mongoose = require('mongoose'),
   Product = mongoose.model('Products');
 
-exports.list_all_products = function(req, res) { // use functions instead of expressions using module.export
-  Product.find({}, function(err, task) {
+exports.list_all_products = (req, res) => { // use functions instead of expressions using module.export
+  Product.find({}, (err, task) => {
     if (err)
       res.send(err);
     res.json(task);
@@ -13,29 +11,27 @@ exports.list_all_products = function(req, res) { // use functions instead of exp
 };
 
 
-
-
-exports.create_a_product = function(req, res) {
+exports.create_a_product = (req, res) => {
   let new_task = new Product(req.body);
-  new_task.save(function(err, task) {
+  new_task.save((err, task) => {
     if (err)
       res.send(err);
-    res.json(task);
+      res.json(task);
   });
 };
 
 
-exports.read_a_product = function(req, res) {
-  Product.findById(req.params.taskId, function(err, task) {
+exports.read_a_product = (req, res) => {
+  Product.findById(req.params.taskId, (err, task) => {
     if (err)
       res.send(err);
-    res.json(task);
+      res.json(task);
   });
 };
 
 
 
-exports.delete_a_product = function(req, res) {
+exports.delete_a_product = (req, res) => {
 
 
   Product.remove({
@@ -43,7 +39,7 @@ exports.delete_a_product = function(req, res) {
   }, function(err, task) {
     if (err)
       res.send(err);
-    res.json({ message: 'Product successfully deleted' });
+      res.json({ message: 'Product successfully deleted' });
   });
 };
 
