@@ -1,4 +1,3 @@
-'use strict';
 
 'use strict';
 var mongoose = require('mongoose');
@@ -6,21 +5,15 @@ var Schema = mongoose.Schema;
 
 
 var UserSchema = new Schema({
-    // username: {
-    //     type: String,
-    //     required: 'Kindly enter the name of the user'
-    //   },
-    
-      email: {
-        type: String,
-        required: 'Kindly enter email',
-        unique: true
-      },
-    
-      password: {
-        type: String,
-        required: 'Kindly enter password'
-      },
+  name: { type: String, required: true, minlength: 3, maxlength: 30 },
+  email: {
+    type: String,
+    required: true,
+    minlength: 3,
+    maxlength: 200,
+    unique: true,
+  },
+  password: { type: String, required: true, minlength: 3, maxlength: 1024 },
     
       // pin: {
       //   type: Number,
@@ -36,3 +29,4 @@ var UserSchema = new Schema({
 });
 
 module.exports = mongoose.model('Users', UserSchema);
+
