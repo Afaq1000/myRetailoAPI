@@ -10,13 +10,16 @@ exports.list_all_products = (req, res) => {
   });
 };
 
+
 exports.create_a_product = (req, res) => {
-  let new_task = new Product(req.body);
-  new_task.save((err, task) => {
+  const new_task = new Product(req.body);
+  new_task.save(function(err, task) {
     if (err) res.send(err);
     res.json(task);
   });
 };
+
+
 
 exports.read_a_product = (req, res) => {
   Product.findById(req.params.taskId, (err, task) => {

@@ -1,8 +1,3 @@
-//steps For SignIn
-//joi Validation
-// Does the user exist
-//validate password
-// jwt => send to client
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");

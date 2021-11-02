@@ -11,16 +11,18 @@ const productsValSchema = Joi.object().keys({
         .positive()
         .required(),
 
+    price: Joi.number()
+        .positive()
+        .required(),
+
     brand:Joi.string()
         .alphanum()
         .min(3)
         .max(30)
-        .required(),
+        .required()
 
 
-    price: Joi.number()
-        .positive()
-        .required(),
+
 
    
 })

@@ -1,15 +1,3 @@
-//Steps for Authentication & Autorization
-//user model
-//signUp => Hash Password => public
-//signIn => JWT => public
-//protect apis/crud endpoints( will be private we protect them using a )=> middleware => Authorization
-
-//Steps for SignUp
-// joi validation
-//does user exist?
-//create new user
-//Hash Password => bcrypt ,install bcrypt
-//save user
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
