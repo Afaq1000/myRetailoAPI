@@ -14,7 +14,7 @@ var ProductsSchema = new Schema({
   },
 
   price: {
-    type: String,
+    type: Number,
     required: "Kindly enter the price of the product",
   },
 

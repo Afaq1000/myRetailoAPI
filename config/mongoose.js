@@ -1,10 +1,5 @@
-
 mongoose = require('mongoose'),
-Task = require('../api/models'), //created models loading here
+Task = require('../api/models'), 
 
-
-// mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/myRetailodb'); //connection string
-
-//add service layer for authentication.
+mongoose.connect('mongodb://localhost/myRetailodb'); 

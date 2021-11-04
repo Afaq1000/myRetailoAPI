@@ -1,3 +1,7 @@
+const signUp = require("../api/routes/signUp");
+const signIn = require("../api/routes/signIn");
+// require('dotenv').config()
+// require("../middlewares");
 let express = require("express"),
   app = express(),
   port = process.env.PORT || 3000,
@@ -6,11 +10,15 @@ let express = require("express"),
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-//Now in server.js adding route as a middleware.
 const rootRouter = require("../api/routes");
-app.use("/", rootRouter);
+// app.use(function(req, res) {
+//     res.status(404).send({url: req.originalUrl + ' not found'})
+//   });
+
+app.use(rootRouter); //mounting instance of express.Router on the app
+app.use("/signUp", signUp);
+app.use("/signIn", signIn);
 
 app.listen(port);
 
-console.log("todo list myRetailo API server started on: " + port);
+console.log(" myRetailo API server started on: " + port);

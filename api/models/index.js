@@ -1,11 +1,13 @@
-const Products = require('./productsModel');
-module.exports = Products;
+const Products = require("./productsModel");
+const Roles = require("./rolesModel");
+const Users = require("./userModel");
+const Orders = require("./orderModel");
+const OrdersItems = require("./orderItemsModel");
 
-const RoleUser = require('./roleUserModel');
-module.exports = RoleUser;
-
-const Roles = require('./rolesModel');
-module.exports = Roles;
-
-const Users = require('./userModel');
-module.exports = Users;
+module.exports = {
+  Products,
+  Roles,
+  Users,
+  Orders,
+  OrdersItems
+};
