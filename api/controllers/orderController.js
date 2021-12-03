@@ -31,20 +31,22 @@ exports.create_a_Order = async (req, res) => {
 };
 
 exports.read_a_Order = (req, res) => {
-  Order.findById(req.params.taskId, (err, task) => {
+  Order.findById(req.params.orderId, (err, task) => {
     if (err) res.send(err);
     res.json(task);
   });
 };
 
 exports.delete_a_Order = (req, res) => {
-  Order.remove(
+  Order.findOneAndDelete(
     {
-      _id: req.params.taskId,
+      _id: req.params.orderId,
     },
-    function (err, task) {
-      if (err) res.send(err);
-      res.json({ message: "Order successfully deleted" });
-    }
-  );
+    function(err, task) {
+      if (err){
+       return res.send(err);
+      }
+       
+      res.json({ message: 'Order successfully deleted' });
+    });
 };

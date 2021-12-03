@@ -1,5 +1,6 @@
 const signUp = require("../api/routes/signUp");
 const signIn = require("../api/routes/signIn");
+const cors = require("cors");
 // require('dotenv').config()
 // require("../middlewares");
 let express = require("express"),
@@ -9,6 +10,7 @@ let express = require("express"),
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 const rootRouter = require("../api/routes");
 // app.use(function(req, res) {

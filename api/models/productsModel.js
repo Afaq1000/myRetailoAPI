@@ -10,7 +10,7 @@ var ProductsSchema = new Schema({
 
   quantity: {
     type: Number,
-    required: "Kindly enter the quantity of the product",
+    required: "Kindly enterz the quantity of the product",
   },
 
   price: {
