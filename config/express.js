@@ -1,13 +1,15 @@
+require('dotenv').config()
 const signUp = require("../api/routes/signUp");
 const signIn = require("../api/routes/signIn");
 const cors = require("cors");
-// require('dotenv').config()
+
 // require("../middlewares");
 let express = require("express"),
   app = express(),
   port = process.env.PORT || 3000,
   bodyParser = require("body-parser");
 
+app.options('*', cors()) // include before other routes
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
