@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
@@ -6,7 +6,7 @@ const Joi = require("joi");
 const express = require("express");
 const router = express.Router();
 
-
+// require("dotenv").config();
 
 router.post("/", async (req, res) => {
   const schema = Joi.object({

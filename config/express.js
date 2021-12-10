@@ -9,7 +9,7 @@ let express = require("express"),
   port = process.env.PORT || 3000,
   bodyParser = require("body-parser");
 
-app.options('*', cors()) // include before other routes
+// app.options('*', cors()) // include before other routes
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());

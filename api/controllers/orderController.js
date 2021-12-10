@@ -12,6 +12,7 @@ exports.list_all_Orders = (req, res) => {
 };
 
 exports.create_a_Order = async (req, res) => {
+  // console.log(req.user._id);
   try {
     const new_task = await Order.create({
       delivery_date: req.body.delivery_date,
@@ -23,10 +24,12 @@ exports.create_a_Order = async (req, res) => {
       product_id: req.body.product_id,
       quantity: req.body.quantity,
     });
-
+    console.log('1');
     return res.json([new_task, new_task1]);
   } catch (err) {
+    console.log('2');
     if (err) return res.status(422).json(err.message);
+   
   }
 };
 
