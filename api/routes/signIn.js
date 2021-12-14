@@ -1,4 +1,3 @@
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
@@ -6,8 +5,8 @@ const Joi = require("joi");
 const express = require("express");
 const router = express.Router();
 
+require("dotenv").config();
 
-// require("dotenv").config();
 router.post("/", async (req, res) => {
   const schema = Joi.object({
     email: Joi.string().min(3).max(200).required().email(),
@@ -28,8 +27,7 @@ router.post("/", async (req, res) => {
     if (!validPassword)
       return res.status(400).send("Invalid email or password...");
 
-    // const jwtSecretKey = process.env.SECRET_KEY;
-    const jwtSecretKey='${process.env.JWT_SECRET_KEY}';
+    const jwtSecretKey = process.env.SECRET_KEY;
     const token = jwt.sign(
       { _id: user._id, name: user.name, email: user.email },
       jwtSecretKey
