@@ -21,9 +21,6 @@ const productsValSchema = Joi.object().keys({
         .max(30)
         .required()
 
-
-
-
    
 })
 
