@@ -1,5 +1,7 @@
 "use strict";
 
+const orderItemsModel = require("../models/orderItemsModel");
+
 var mongoose = require("mongoose"),
   Order = mongoose.model("Orders"),
   OrdersItems = mongoose.model("OrdersItems");
@@ -10,6 +12,18 @@ exports.list_all_Orders = (req, res) => {
     res.json(task);
   });
 };
+// exports.list_all_Orders = async (req, res) => {
+//   try{
+//     const orders= await Order.find({})
+//     const orderItems= await OrdersItems.find({})
+//     return res.json([orders,orderItems]);
+//     }catch(err){
+//       if (err) return res.status(422).json(err.message);
+//     }
+  
+// }
+
+
 
 exports.create_a_Order = async (req, res) => {
   // console.log(req.user._id);
@@ -18,6 +32,7 @@ exports.create_a_Order = async (req, res) => {
       delivery_date: req.body.delivery_date,
       customer_id: req.user._id,
       order_type: req.body.order_type,
+      placed_at:req.body.placed_at
     });
     const new_task1 = await OrdersItems.create({
       order_id: new_task._id,

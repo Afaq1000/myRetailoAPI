@@ -7,7 +7,8 @@ module.exports = (req, res, next) => {
   if (!token) return res.status(401).send("Access denied. Not authorized...");
   try {
     
-    const jwtSecretKey = process.env.SECRET_KEY;
+    // const jwtSecretKey = process.env.SECRET_KEY;
+    const jwtSecretKey='${process.env.JWT_SECRET_KEY}';
     console.log(jwtSecretKey);
     const payload = jwt.verify(token, jwtSecretKey);
     req.user = payload;
