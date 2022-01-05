@@ -1,4 +1,3 @@
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
@@ -6,7 +5,7 @@ const Joi = require("joi");
 const express = require("express");
 const router = express.Router();
 
-require("dotenv").config();
+// require("dotenv").config();
 
 router.post("/", async (req, res) => {
   const schema = Joi.object({
@@ -27,7 +26,8 @@ router.post("/", async (req, res) => {
     user.password = await bcrypt.hash(user.password, salt);
     await user.save();
 
-    const jwtSecretKey = process.env.SECRET_KEY;
+    // const jwtSecretKey = process.env.SECRET_KEY;
+    const jwtSecretKey='${process.env.JWT_SECRET_KEY}';
     const token = jwt.sign(
       { _id: user._id, name: user.name, email: user.email },
       jwtSecretKey

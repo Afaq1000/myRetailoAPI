@@ -1,8 +1,6 @@
-
-'use strict';
-var mongoose = require('mongoose');
+"use strict";
+var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
-
 
 var RolesSchema = new Schema({
   id: {
@@ -10,12 +8,13 @@ var RolesSchema = new Schema({
   },
 
   value: {
-    type: [{
-      type: String,
-      enum: ['SuperAdmin', 'SaleAgent', 'Consumer']
-    }]
-  }
-
+    type: [
+      {
+        type: String,
+        enum: ["SuperAdmin", "SaleAgent", "Consumer"],
+      },
+    ],
+  },
 });
 
-module.exports = mongoose.model('Roles', RolesSchema);
+module.exports = mongoose.model("Roles", RolesSchema);

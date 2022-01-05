@@ -22,7 +22,6 @@ const userValSchema = Joi.object({
 
     verified: Joi.boolean()
         .required()    
-
    
 })
 
