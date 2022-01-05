@@ -26,3 +26,4 @@ app.use("/signIn", signIn);
 app.listen(port);
 
 console.log(" myRetailo API server started on: " + port);
+module.exports=app;
